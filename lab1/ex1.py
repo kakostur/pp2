@@ -347,3 +347,4 @@ print(myorder.format(quantity, itemno, price))
 #26
 txt = "We are the so-called \"Vikings\" from the north."
 
+ 
