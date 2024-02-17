@@ -13,9 +13,9 @@ today = datetime.now()
 yesterday = today - timedelta(days=1)
 tomorrow = today + timedelta(days=1)
 
-print( yesterday)
-print( today)
-print( tomorrow)
+print( yesterday.strftime("%Y-%m-%d"))
+print( today.strftime("%Y-%m-%d"))
+print( tomorrow.strftime("%Y-%m-%d"))
 
 
 #3
