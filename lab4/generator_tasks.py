@@ -2,9 +2,10 @@
 n=int(input())
 def squre(n):
     for i in range(1,n+1):
-        print(i*i) 
+        yield i*i 
     
-squre(n)
+squre_numbers=squre(n)
+print(','.join(map(str, squre_numbers)))
 
 #2
 def even_numbers(n):
@@ -12,23 +13,9 @@ def even_numbers(n):
         if num % 2 == 0:
             yield num
 
-def main():
-    try:
-        n = int(input())
-        if n < 0:
-            print()
-            return
-
-        even_nums = even_numbers(n)
-        even_nums_str = ', '.join(map(str, even_nums))
-        print(f"Even numbers between 0 and {n}:", even_nums_str)
-
-    except ValueError:
-        print()
-
-if __name__ == "__main__":
-    main()
-
+n=int (input())
+num=even_numbers(n)
+print(','.join(map(str,num)))
 
 #3
 def divisible_by_3_and_4(n):
@@ -36,22 +23,9 @@ def divisible_by_3_and_4(n):
         if num % 3 == 0 and num % 4 == 0:
             yield num
 
-def main():
-    try:
-        n = int(input())
-        if n < 0:
-            print()
-            return
-
-        generator = divisible_by_3_and_4(n)
-        for num in generator:
-            print(num)
-
-    except ValueError:
-        print()
-
-if __name__ == "__main__":
-    main()
+n=int(input())
+numbers=divisible_by_3_and_4(n)
+print(','.join(map(str,numbers)))
 
 
 #4
@@ -59,36 +33,16 @@ def squares(a, b):
     for num in range(a, b + 1):
         yield num ** 2
 
-def main():
-    try:
-        a = int(input())
-        b = int(input())
-
-        print(a, b)
-        for square in squares(a, b):
-            print(square)
-
-    except ValueError:
-        print("Invalid input.")
-
-if __name__ == "__main__":
-    main()
-
+a=int(input())
+b=int(input())
+sqr_numbers=squre(a,b)
+print(','.join(map(str,sqr_numbers)))
 
 #5
 def countdown(n):
     while n >= 0:
         yield n
         n -= 1
-def main():
-    try:
-        n = int(input())
-        print( n)
-        for num in countdown(n):
-            print(num, end=" ")
-
-    except ValueError:
-        print("Invalid input.")
-
-if __name__ == "__main__":
-    main()
+n=int(input())
+nums=countdown(n)
+print(','.join(map(str,nums)))
