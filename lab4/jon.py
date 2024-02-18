@@ -11,7 +11,7 @@ for item in data['imdata']:
     l1_phys_if = item ['l1PhysIf']['attributes']
 
 format_interface = "{:<50} {:<80} {:<30}".format (
-    l1_phys_if ['adminSt'],
+    l1_phys_if ['dn'],
     l1_phys_if ['autoNeg'],
     l1_phys_if ['brkoutMap']
 )
