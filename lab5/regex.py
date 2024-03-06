@@ -75,4 +75,4 @@ def camel_to_snake(camel_str):
     return re.sub(r'(?<!^)(?=[A-Z])', '_', camel_str).lower()
 
 test_string = "convertThisCamelCaseStringToSnakeCase"
-print(camel_to_snake(test_string))  
+print(camel_to_snake(test_string)) 
