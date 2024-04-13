@@ -83,6 +83,8 @@ def main():
                     figure = 'right triangle'
                 if event.key == pygame.K_a: 
                     figure = 'rhombus'
+                if event.key == pygame.K_n: 
+                    figure = 'ellipce'
             if event.type == pygame.MOUSEBUTTONDOWN: 
                 if mode == 'random':
                     color = (random.randrange(256), random.randrange(256), random.randrange(256))
@@ -98,8 +100,6 @@ def main():
                     if figure == 'pen': # если используем ручку, то рисуем линию на экране заданным цветом, от начальных координат до конечных, толщина - radius = 1
                         pygame.draw.line(screen, color, last_pos, event.pos, radius)
                         last_pos = event.pos 
-                    if figure == 'erase': # если используем ластик, то рисуем черный круг на экране, центр - конечные координаты, а радиус равен 6
-                        pygame.draw.circle(screen, (0, 0, 0), (event.pos[0], event.pos[1]), 6)
                     if figure == 'rectangle': # если фигура - прямоугольник, то обращаемся к функции Rect_pos, которой передаем начальные и конечные координаты, затем выводим наш surface на экран и наконец рисуем прямоугольник на экране заданным цветом согласно функции Rect_pos
                         t = Rect_pos(last_pos[0], last_pos[1], event.pos[0], event.pos[1])
                         screen.blit(work_surf, (0, 0))
@@ -122,10 +122,15 @@ def main():
                         t = Rhombus_pos(last_pos[0], last_pos[1], event.pos[0], event.pos[1])
                         screen.blit(work_surf, (0, 0))
                         pygame.draw.polygon(screen, color, t)
-                        points = [] # чистим наш лист, чтобы при следующей отрисовки он был пустым
+                        points = [] 
                     if figure == 'circle': # если фигура - круг, то сначала выводим наш surface на экран, а затем рисуем круг на экране заданным цветом, центр - начальные координаты, радиус - расстояния между конечными и начальными координатами (формула расстояния между двумя точками)
                         screen.blit(work_surf, (0, 0))
                         pygame.draw.circle(screen, color, (last_pos[0], last_pos[1]), int(math.sqrt((event.pos[0]-last_pos[0])**2 + (event.pos[1]-last_pos[1])**2)))
+                    if figure == 'ellipce':
+                        screen.blit(work_surf, (0, 0))
+                        pygame.draw.ellipse(screen,color,(last_pos[0],last_pos[1]),int(math.sqrt((event.pos[1]-last_pos[1])**2 + (event.pos[1]-last_pos[1])**2)))
+                    if figure == 'erase': 
+                        pygame.draw.circle(screen, (0, 0, 0), (event.pos[0], event.pos[1]), 6)
 
         pygame.display.flip() 
     pygame.quit() 
