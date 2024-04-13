@@ -112,13 +112,13 @@ while True:
     DISPLAYSURF.blit(scores, (10, 10))
 
     # Generate coins
-    if random.randint(1, 100) == 1:
+    if random.randint(1, 500) == 1:
         new_coin = Coin()
         coins.add(new_coin)
         all_sprites.add(new_coin)
 
     # Generate enemies
-    if random.randint(1, 100) == 1:
+    if random.randint(1, 500) == 1:
         new_enemy = Enemy()
         enemies.add(new_enemy)
         all_sprites.add(new_enemy)
