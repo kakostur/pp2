@@ -1,6 +1,5 @@
 import psycopg2
 
-# Database connection parameters
 params = {
     'host': 'localhost',
     'database': 'suppliers',
@@ -9,7 +8,6 @@ params = {
     'port': '5433'
 }
 
-# Function to return all records based on a pattern
 def get_records_by_pattern(pattern_text):
     conn = psycopg2.connect(**params)
     cursor = conn.cursor()
@@ -19,7 +17,6 @@ def get_records_by_pattern(pattern_text):
     conn.close()
     return records
 
-# Procedure to insert a new user by name and phone, updating the phone if the user already exists
 def insert_or_update_user(name_param, phone_param):
     conn = psycopg2.connect(**params)
     cursor = conn.cursor()
@@ -28,7 +25,6 @@ def insert_or_update_user(name_param, phone_param):
     cursor.close()
     conn.close()
 
-# Procedure to insert many new users by a list of names and phones, checking correctness of phones and returning incorrect data
 def insert_many_users(users_data):
     conn = psycopg2.connect(**params)
     cursor = conn.cursor()
@@ -51,7 +47,6 @@ def insert_many_users(users_data):
     cursor.close()
     conn.close()
 
-# Example usage
 if __name__ == "__main__":
     pattern = 'John'
     print("Records matching pattern:")
